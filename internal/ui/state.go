@@ -10,6 +10,14 @@ const (
 	BothMode
 )
 
+type Page int
+
+const (
+	PageHome Page = iota
+	PageConnection
+	PageSettings
+)
+
 type SavedConnection struct {
 	Name string
 	Host string

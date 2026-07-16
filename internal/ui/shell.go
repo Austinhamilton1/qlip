@@ -3,6 +3,7 @@ package ui
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/widget"
 )
 
 type Shell struct {
@@ -20,9 +21,13 @@ func NewShell(app *App) *Shell {
 	s.pageContainer = container.NewStack()
 
 	s.navbar = NewNavBar(app, s)
+	s.navbar.Navigate(PageHome)
 
 	s.root = container.NewBorder(
-		s.navbar.Object(),
+		container.NewVBox(
+			s.navbar.Object(),
+			widget.NewSeparator(),
+		),
 		nil,
 		nil,
 		nil,
